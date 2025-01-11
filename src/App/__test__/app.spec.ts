@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 
 test('should load the homepage and display the correct content', async ({ page }) => {
   await page.goto('/'); // Uses the baseURL defined in the configuration

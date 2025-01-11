@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --primary-color: #fff;
+  --primary-color: rgb(59 130 246);
   --secondary-color: #000;
 }
 
@@ -26,5 +26,5 @@ html {
 
 body {
   line-height: 1.5;
-  background-color: var(--primary-color);
+  background-color: #ffffff;
 }

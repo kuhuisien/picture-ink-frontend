@@ -8,7 +8,11 @@ const DesktopNavigation = () => {
         {ROUTING.map((x) => (
           <NavLink
             key={x.to}
-            className={({ isActive }) => (isActive ? 'underline hoverable' : 'hoverable')}
+            className={({ isActive }) =>
+              isActive
+                ? 'text-primary-color'
+                : 'text-gray-700 hover:border-b-2 hover:border-gray-900 pb-1 transition-all duration-300'
+            }
             {...x}>
             {x.displayText}
           </NavLink>

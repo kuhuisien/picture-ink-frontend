@@ -1,12 +1,15 @@
+import GenerateImage from '../../Pages/GenerateImage';
+import Home from '../../Pages/Home';
+
 export const ROUTING = [
   {
     to: '/',
     displayText: 'Home',
-    component: <div>Home</div>
+    component: <Home />
   },
   {
-    to: '/about',
-    displayText: 'About',
-    component: <>About</>
+    to: '/generateImage',
+    displayText: 'Generate Image',
+    component: <GenerateImage />
   }
 ];

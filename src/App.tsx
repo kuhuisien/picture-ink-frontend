@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <h1 className="text-4xl font-bold underline">Hello world!</h1>
+      <h1 className="text-4xl font-bold underline">Hello world! {import.meta.env.VITE_APP_NAME}</h1>
 
       <div>
         <a href="https://vite.dev" target="_blank" rel="noreferrer">

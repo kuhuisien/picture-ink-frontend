@@ -1,19 +1,25 @@
 import { Routes, Route } from 'react-router-dom';
 import { ROUTING } from '../common/constants/routing';
-import NavigationBar from '../common/components/NavigationBar';
+//import { useSample } from '../api/sample/useSample';
+import { AuthContextProvider } from '../common/hooks/AuthContextProvider';
+import NavigationBarContainer from '../common/components/NavigationBarContainer/NavigationBarContainer';
 
 const App = () => {
+  // const { loading, error, data } = useSample();
+  // console.log(loading, error, data);
+
   return (
-    <>
-      <NavigationBar />
-      <div className={'flex flex-col h-screen pt-16 px-6'}>
+    <AuthContextProvider>
+      <NavigationBarContainer />
+
+      <div className={'flex flex-col items-center h-screen pt-16 px-6'}>
         <Routes>
           {ROUTING.map(({ to, component }) => (
             <Route key={to} path={to} element={component} />
           ))}
         </Routes>
       </div>
-    </>
+    </AuthContextProvider>
   );
 };
 

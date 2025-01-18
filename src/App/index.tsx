@@ -3,6 +3,7 @@ import { ROUTING } from '../common/constants/routing';
 //import { useSample } from '../api/sample/useSample';
 import { AuthContextProvider } from '../common/hooks/AuthContextProvider';
 import NavigationBarContainer from '../common/components/NavigationBarContainer/NavigationBarContainer';
+import NotFound from '../Pages/NotFound';
 
 const App = () => {
   // const { loading, error, data } = useSample();
@@ -17,6 +18,8 @@ const App = () => {
           {ROUTING.map(({ to, component }) => (
             <Route key={to} path={to} element={component} />
           ))}
+
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </AuthContextProvider>

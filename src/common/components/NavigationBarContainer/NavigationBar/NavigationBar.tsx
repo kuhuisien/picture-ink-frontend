@@ -1,16 +1,10 @@
-import { GOOGLE_SIGN_IN_URL } from '../../../../api/resources/configs/URL';
 import DesktopNavigation from '../DesktopNavigation/DesktopNavigation';
 import MobileNavigation from '../MobileNavigation/MobileNavigation';
 import UserAvatar from '../UserAvatar/UserAvatar';
 import { NavigationBarProps } from './NavigationBar.types';
 
 const NavigationBar = (props: NavigationBarProps) => {
-  console.log(props);
   const isSignedIn = !!props.email;
-
-  const onClickSignin = () => {
-    window.location.href = GOOGLE_SIGN_IN_URL;
-  };
 
   return (
     <header
@@ -28,7 +22,7 @@ const NavigationBar = (props: NavigationBarProps) => {
           <UserAvatar {...props} />
         </>
       ) : (
-        <button onClick={onClickSignin}>Login</button>
+        <></>
       )}
     </header>
   );

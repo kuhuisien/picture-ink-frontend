@@ -1,11 +1,20 @@
 import { useNavigate } from 'react-router-dom';
 import { ROUTING_PATH } from '../../common/constants/routing';
+import { useContext } from 'react';
+import { AuthContext } from '../../common/hooks/AuthContextProvider/AuthContext';
+import { GOOGLE_SIGN_IN_URL } from '../../api/resources/configs/URL';
 
 const Home = () => {
+  const { isLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const onStartButtonClick = () => {
-    void navigate(ROUTING_PATH.GENERATE_IMAGE);
+    if (isLoggedIn) {
+      void navigate(ROUTING_PATH.GENERATE_IMAGE);
+    } else {
+      // signin to google
+      window.location.href = GOOGLE_SIGN_IN_URL;
+    }
   };
 
   return (

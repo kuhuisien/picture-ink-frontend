@@ -14,6 +14,7 @@ const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState<IGetUserInfoPayload | null | undefined>();
+  const isLoggedIn = !!user;
 
   useEffect(() => {
     const fetchDataAsync = async () => {
@@ -27,7 +28,7 @@ const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     });
   }, []);
 
-  return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={{ ...user, isLoggedIn }}>{children}</AuthContext.Provider>;
 };
 
 export { AuthContextProvider };

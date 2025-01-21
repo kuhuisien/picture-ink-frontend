@@ -7,7 +7,7 @@
 export const AUTH_API_BASE_URL = import.meta.env.VITE_API_AUTH_BASE_URL as string;
 
 // URL for Auth APIs
-export const GET_USER_INFO_URL = `${AUTH_API_BASE_URL}/user`;
+export const GET_USER_INFO_URL = `${AUTH_API_BASE_URL}/secure/user`;
 export const GOOGLE_SIGN_IN_URL = `${AUTH_API_BASE_URL}/oauth2/authorization/google`;
 export const GOOGLE_SIGN_OUT_URL = `${AUTH_API_BASE_URL}/logout`;
 

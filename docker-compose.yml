@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  auth-service:
+    build:
+      context: /Users/huisienku/Documents/projects/picture-ink-oauth
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    networks:
+      - app-network
+    env_file: 'docker.env'
+    environment:
+      UI_URL: http://host.docker.internal:5173
+      UI_LOGIN_REDIRECT_URL: http://localhost:5173/generateImage
+      UI_LOGOUT_REDIRECT_URL: http://localhost:5173
+
+  gateway-coprocessor:
+    build:
+      context: /Users/huisienku/Documents/projects/picture-ink-gateway-coprocessor
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    networks:
+      - app-network
+    env_file: 'docker.env'
+
+  springboot-test-microservice:
+    build:
+      context: /Users/huisienku/Documents/projects/gs-graphql-server/complete
+      dockerfile: Dockerfile
+    ports:
+      - '8090:8090'
+    networks:
+      - app-network
+
+  apollo-router:
+    build:
+      context: /Users/huisienku/Documents/projects/picture-ink-service-gateway
+      dockerfile: Dockerfile
+    ports:
+      - '4000:4000'
+    env_file: 'docker.env'
+    networks:
+      - app-network
+    depends_on:
+      - springboot-test-microservice
+      - gateway-coprocessor
+
+networks:
+  app-network:
+    driver: bridge
